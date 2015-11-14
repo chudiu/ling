@@ -13,5 +13,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/database_connect_pool"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jstl"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/mysql"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
