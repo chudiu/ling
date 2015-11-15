@@ -3,8 +3,8 @@ package gem.second_hand.entity;
 public class School {
 	//学校表 School
 	private int id;
-	private String  province;
-	private String school;
+	private String  loca;
+	private String name;
 
 	public School() {
 
@@ -18,25 +18,27 @@ public class School {
 		this.id = id;
 	}
 
-	public String getProvince() {
-		return province;
+	
+
+	public String getLoca() {
+		return loca;
 	}
 
-	public void setProvince(String province) {
-		this.province = province;
+	public void setLoca(String loca) {
+		this.loca = loca;
 	}
 
-	public String getSchool() {
-		return school;
+	public String getName() {
+		return name;
 	}
 
-	public void setSchool(String school) {
-		this.school = school;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public String toString() {
-		return "School [id=" + id + ", province=" + province + ", school="
-				+ school + "]";
+		return "School [id=" + id + ", province=" + loca + ", school="
+				+ name + "]";
 	}
 }
