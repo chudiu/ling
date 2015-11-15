@@ -1,6 +1,5 @@
 package gem.second_hand.dao;
 
-import gem.second_hand.entity.Goods;
 import gem.second_hand.entity.School;
 import gem.second_hand.util.DBConnection;
 
