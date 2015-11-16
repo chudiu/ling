@@ -2,22 +2,12 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>注册用户信息</title>
+<title>修改用户信息</title>
 <link rel=stylesheet href="../css/demo.css" type="text/css">
 </head>
 <script src='../common/date/date.js'></script>
 <script>
 function check() {
-	var name=document.getElementsByName("UserName")[0].value;
-	if(name==""){
-		alert("亲！！账号不能为空哟！");
-		return;
-	}
-		var password=document.getElementsByName("UserPassword")[0].value;
-	if(password==""){
-		alert("亲！！密码不能为空哟！");
-		return;
-	}
 	var nickname=document.getElementsByName("UserNickname")[0].value;
 	if(nickname==""){
 		alert("亲！昵称不能为空哟！！");
@@ -39,23 +29,9 @@ function back() {
 		<table width="95%" border="0" cellpadding="3" cellspacing="1"
 			class="toolBar" align="center">
 			<tr align=left class="colom">
-				<td colspan="2">欢迎来到德莱联盟！(个性注册)</td>
+				<td colspan="2">修改个人信息</td>
 			</tr>
-			<tr class=even>
-				<td width='100' align='right' nowrap>账号&nbsp;</td>
-				<td bgcolor='#ffffff'><input type="text" name="UserName"><font
-					color=#ff0000>*</font></td>
-			</tr>
-			<tr class=even>
-				<td width='100' align='right' nowrap>密码:&nbsp;</td>
-				<td bgcolor='#ffffff'><input type="password"
-					name="UserPassword"><font color=#ff0000>*</font></td>
-			</tr>
-			<tr class=even>
-				<td width='100' align='right' nowrap>确认密码:&nbsp;</td>
-				<td bgcolor='#ffffff'><input type="password" name=""><font
-					color=#ff0000>*</font></td>
-			</tr>
+			
 			<tr class=even>
 				<td width='100' align='right' nowrap>昵称:&nbsp;</td>
 				<td bgcolor='#ffffff'><input type="text" name="UserNickname"><font

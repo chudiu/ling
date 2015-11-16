@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<title>新增学生信息</title>
+<title>注册用户信息</title>
 <link rel=stylesheet href="../css/demo.css" type="text/css">
 </head>
 <script src='../common/date/date.js'></script>

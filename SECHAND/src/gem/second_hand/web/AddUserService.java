@@ -4,7 +4,6 @@ package gem.second_hand.web;
 
 import gem.second_hand.entity.User;
 import gem.second_hand.service.UserService;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -33,6 +32,18 @@ public class AddUserService extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
+		
+		String idss = request.getParameter("urlid");
+		if (idss==null || !idss.equals("update")) {
+			String sid = request.getParameter("id");
+			User user = new UserService().getUserById(Integer
+					.parseInt(sid));
+			request.setAttribute("s", user);
+			request.getRequestDispatcher("/user/upda.jsp").forward(request,
+					response);
+		}
+		else if (idss.equals("update")) {
+		
 		String name = request.getParameter("UserName");
 		String password = request.getParameter("UserPassword");
 		String nickname = request.getParameter("UserNickname");
@@ -61,4 +72,5 @@ public class AddUserService extends HttpServlet {
 		new UserService().save(user);
 		out.close();
 	}
+}
 }
