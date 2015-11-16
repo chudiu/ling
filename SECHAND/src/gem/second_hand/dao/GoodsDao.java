@@ -2,6 +2,7 @@ package gem.second_hand.dao;
 
 import gem.second_hand.entity.Goods;
 import gem.second_hand.util.DBConnection;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -106,7 +107,7 @@ public class GoodsDao {
 	}
 
 	// 获得商品的数量
-	public int getCounts() {
+	public int getGoodsCounts() {
 		// 1.
 		Connection conn = null;
 		PreparedStatement prep = null;
@@ -152,7 +153,7 @@ public class GoodsDao {
 	}
 
 	// 更新商品数据
-	public void update(Goods g) {
+	public void updateGoods(Goods g) {
 		Connection conn = null;
 		PreparedStatement prep = null;
 		try {
@@ -193,5 +194,29 @@ public class GoodsDao {
 			}
 		}
 
+	}
+	//删除商品数据
+	public void deleteGoods(String[] ids) {
+		Connection conn = null;
+		PreparedStatement prep = null;
+		try {
+			conn = DBConnection.getDBConnection();
+			String sql = "delete  from goods where id=?";
+			prep = conn.prepareStatement(sql);
+
+			for (String id : ids) {
+				prep.setInt(1, Integer.parseInt(id));
+				prep.executeUpdate();
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				prep.close();
+				conn.close();
+			} catch (Exception e2) {
+				throw new RuntimeException(e2);
+			}
+		}
 	}
 }
