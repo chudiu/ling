@@ -80,6 +80,8 @@ public class UserDao {
 			prep.setInt(5, user.getSex());
 			prep.setString(6, user.getPhone());
 			prep.setString(7, user.getEmail());
+			prep.setInt(8, user.getId());
+			
 			prep.executeUpdate();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new RuntimeException(e);

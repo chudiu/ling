@@ -174,7 +174,8 @@ public class GoodsDao {
 			prep.setInt(8, g.getViewCount());
 			prep.setString(9, g.getLoca());
 			prep.setInt(10, g.getSchool_id());// 发布的学校不会变吧
-
+			prep.setInt(11, g.getId());
+			
 			prep.executeUpdate();
 
 		} catch (ClassNotFoundException | SQLException e) {

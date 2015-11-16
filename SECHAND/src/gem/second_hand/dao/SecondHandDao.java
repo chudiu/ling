@@ -5,6 +5,7 @@ import gem.second_hand.entity.Favourite;
 import gem.second_hand.entity.Goods;
 import gem.second_hand.entity.GoodsType;
 import gem.second_hand.entity.ReleDemands;
+import gem.second_hand.entity.ReleGoods;
 import gem.second_hand.entity.School;
 import gem.second_hand.entity.User;
 
@@ -16,6 +17,7 @@ private FavouriteDao fdao = new FavouriteDao();
 private GoodsTypeDao gtdao = new GoodsTypeDao();
 private SchoolDao sdao = new SchoolDao();
 private ReleDemandsDao rddao = new ReleDemandsDao();
+private ReleGoodsDao rgdao = new ReleGoodsDao();
 
 	public SecondHandDao() {}
 	//用户
@@ -39,7 +41,7 @@ private ReleDemandsDao rddao = new ReleDemandsDao();
 	public void saveGoods(Goods goods) {
 		gdao.saveGoods(goods);
 	}
-	public void update(Goods g) {
+	public void updateGoods(Goods g) {
 		gdao.updateGoods(g);
 	}
 	public int getGoodsCounts() {
@@ -102,10 +104,19 @@ private ReleDemandsDao rddao = new ReleDemandsDao();
 		rddao.deleteReleDemands(ids);
 	}
 	public ReleDemands getReledemandsById(int id) {
-		return rddao.getReledemandsById(id);
+		return rddao.getReleDemandsById(id);
 	}
 	
 	//发布商品
+	public void saveReleGoods(ReleGoods releg) {
+		rgdao.saveReleGoods(releg);
+	}
+	public void deleteReleGoods(String[] ids) {
+		rgdao.deleteReleGoods(ids);
+	}
+	public ReleGoods getReleGoodsById(int id) {
+		return rgdao.getReleGoodsById(id);
+	}
 	
 	
 }
