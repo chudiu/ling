@@ -105,5 +105,8 @@ private ReleDemandsDao rddao = new ReleDemandsDao();
 		return rddao.getReledemandsById(id);
 	}
 	
+	//发布商品
+	
+	
 }
 
