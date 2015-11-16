@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDao {
+	//添加用户信息
 	public void saveUser(User user) {
 		// try-catch-finally
 		Connection conn = null;
@@ -39,7 +40,7 @@ public class UserDao {
 			}
 		}
 	}
-
+	//删除用户信息
 	public void deleteUser(String[] ids) {
 		Connection conn = null;
 		PreparedStatement prep = null;
@@ -63,7 +64,7 @@ public class UserDao {
 			}
 		}
 	}
-
+	//更新用户信息
 	public void updateUaser(User user) {
 		Connection conn = null;
 		PreparedStatement prep = null;
@@ -93,7 +94,7 @@ public class UserDao {
 			}
 		}
 	}
-
+	//获取用户信息
 	public User getUserById(int id) {
 		Connection conn = null;
 		PreparedStatement prep = null;
