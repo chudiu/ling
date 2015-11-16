@@ -106,8 +106,9 @@ public class UserDao {
 			prep = conn.prepareStatement(sql);
 			prep.setInt(1, id);
 			rs = prep.executeQuery();
-			s = new User();
+			
 			if (rs.next()) {
+				s = new User();
 				s.setId(rs.getInt("id"));
 				s.setName(rs.getString("name"));
 				s.setPassword(rs.getString("password"));

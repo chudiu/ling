@@ -4,6 +4,7 @@ import gem.second_hand.entity.Demands;
 import gem.second_hand.entity.Favourite;
 import gem.second_hand.entity.Goods;
 import gem.second_hand.entity.GoodsType;
+import gem.second_hand.entity.ReleDemands;
 import gem.second_hand.entity.School;
 import gem.second_hand.entity.User;
 
@@ -14,6 +15,7 @@ private DemandsDao ddao = new DemandsDao();
 private FavouriteDao fdao = new FavouriteDao();
 private GoodsTypeDao gtdao = new GoodsTypeDao();
 private SchoolDao sdao = new SchoolDao();
+private ReleDemandsDao rddao = new ReleDemandsDao();
 
 	public SecondHandDao() {}
 	//用户
@@ -92,6 +94,16 @@ private SchoolDao sdao = new SchoolDao();
 		return sdao.getSchoolById(id);
 	}
 	
-	//
+	//发布需求
+	public void saveReleDemands(ReleDemands reled) {
+		rddao.saveReleDemands(reled);
+	}
+	public void deleteReleDemands(String[] ids) {
+		rddao.deleteReleDemands(ids);
+	}
+	public ReleDemands getReledemandsById(int id) {
+		return rddao.getReledemandsById(id);
+	}
+	
 }
 

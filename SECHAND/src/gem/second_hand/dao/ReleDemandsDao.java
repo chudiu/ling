@@ -2,14 +2,13 @@ package gem.second_hand.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import gem.second_hand.entity.ReleDemands;
 import gem.second_hand.util.DBConnection;
 
 public class ReleDemandsDao {
-private ReleDemands rd = new ReleDemands();
-
 
 	public void saveReleDemands(ReleDemands reled) {
 		Connection conn = null;
@@ -35,5 +34,59 @@ private ReleDemands rd = new ReleDemands();
 				throw new RuntimeException(e);
 			}
 		}
+	}
+	public void deleteReleDemands(String[] ids) {
+		Connection conn = null;
+		PreparedStatement prep = null;
+		try {
+			conn = DBConnection.getDBConnection();
+			String sql = "delete  from rele_demands where id=?";
+			prep = conn.prepareStatement(sql);
+
+			for (String id : ids) {
+				prep.setInt(1, Integer.parseInt(id));
+				prep.executeUpdate();
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				prep.close();
+				conn.close();
+			} catch (Exception e2) {
+				throw new RuntimeException(e2);
+			}
+		}
+	}
+	public ReleDemands getReledemandsById(int id) {
+		Connection conn = null;
+		PreparedStatement prep = null;
+		ResultSet rs = null;
+		ReleDemands reled = null;
+		try {
+			conn = DBConnection.getDBConnection();
+			String sql = "select * from rele_demands where id=?";
+			prep = conn.prepareStatement(sql);
+			prep.setInt(1, id);
+			rs = prep.executeQuery();
+			
+			if (rs.next()) {
+				reled  = new ReleDemands();
+				reled.setId(rs.getInt("id"));
+				reled.setDemands_id(rs.getInt("demands_id"));
+				reled.setUser_id(rs.getInt("user_id"));
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		} finally {
+			try {
+				rs.close();
+				prep.close();
+				conn.close();
+			} catch (Exception e2) {
+				throw new RuntimeException(e2);
+			}
+		}
+		return reled;
 	}
 }
