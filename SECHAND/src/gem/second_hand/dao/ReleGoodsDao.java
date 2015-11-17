@@ -15,11 +15,12 @@ public class ReleGoodsDao {
 		PreparedStatement prep = null;
 		try {
 			conn = DBConnection.getDBConnection();
-			String sql = "insert into rele_goods(user_id,goods_id)"
-					+ "values(?,?)";
+			String sql = "insert into rele_goods(user_id,goods_id,reletime)"
+					+ "values(?,?,?)";
 			prep = conn.prepareStatement(sql);
 			prep.setInt(1, releg.getUser_id());
 			prep.setInt(2, releg.getGoods_id());
+			prep.setDate(3, releg.getReletime());
 			
 			prep.executeUpdate();
 		} catch (ClassNotFoundException | SQLException e) {
@@ -75,6 +76,7 @@ public class ReleGoodsDao {
 				releg.setId(rs.getInt("id"));
 				releg.setGoods_id(rs.getInt("goods_id"));
 				releg.setUser_id(rs.getInt("user_id"));
+				releg.setReletime(rs.getDate("reletime"));
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);

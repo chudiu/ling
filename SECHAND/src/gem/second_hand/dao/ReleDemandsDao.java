@@ -15,12 +15,12 @@ public class ReleDemandsDao {
 		PreparedStatement prep = null;
 		try {
 			conn = DBConnection.getDBConnection();
-			String sql = "insert into rele_demands(user_id,demands_id)"
-					+ "values(?,?)";
+			String sql = "insert into rele_demands(user_id,demands_id,reletime)"
+					+ "values(?,?,?)";
 			prep = conn.prepareStatement(sql);
 			prep.setInt(1, reled.getUser_id());
 			prep.setInt(2, reled.getDemands_id());
-			
+			prep.setDate(3, reled.getReletime());
 			prep.executeUpdate();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new RuntimeException(e);
@@ -75,6 +75,7 @@ public class ReleDemandsDao {
 				reled.setId(rs.getInt("id"));
 				reled.setDemands_id(rs.getInt("demands_id"));
 				reled.setUser_id(rs.getInt("user_id"));
+				reled.setReletime(rs.getDate("reletime"));
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);

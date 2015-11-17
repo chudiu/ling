@@ -61,7 +61,7 @@ private ReleGoodsDao rgdao = new ReleGoodsDao();
 	public int getDemandsCounts() {
 		return ddao.getDemandsCounts();
 	}
-	public void updateDemds(Demands d) {
+	public void updateDemands(Demands d) {
 		ddao.updateDemands(d);
 	}
 	public void deleteDemands(String[] ids){
@@ -103,7 +103,7 @@ private ReleGoodsDao rgdao = new ReleGoodsDao();
 	public void deleteReleDemands(String[] ids) {
 		rddao.deleteReleDemands(ids);
 	}
-	public ReleDemands getReledemandsById(int id) {
+	public ReleDemands getReleDemandsById(int id) {
 		return rddao.getReleDemandsById(id);
 	}
 	

@@ -1,5 +1,7 @@
 package gem.second_hand.dao.test;
 
+import java.sql.Date;
+
 import org.junit.Test;
 
 import gem.second_hand.dao.DemandsDao;
@@ -11,8 +13,12 @@ import gem.second_hand.dao.ReleGoodsDao;
 import gem.second_hand.dao.SchoolDao;
 import gem.second_hand.dao.SecondHandDao;
 import gem.second_hand.dao.UserDao;
+import gem.second_hand.entity.Demands;
+import gem.second_hand.entity.Favourite;
 import gem.second_hand.entity.Goods;
 import gem.second_hand.entity.GoodsType;
+import gem.second_hand.entity.ReleDemands;
+import gem.second_hand.entity.ReleGoods;
 import gem.second_hand.entity.School;
 import gem.second_hand.entity.User;
 
@@ -128,6 +134,75 @@ public class SecondHand_Test {
 		dao.saveGoodsType(gtype);
 	}
 
+	// 需求
+	@Test
+	public void saveDemands() {
+		Demands d = new Demands();
+		d.setLoca("高博GS2");
+		d.setDescr("走过路过，不要错过！");
+		d.setPrice(100.2f);
+		d.setSchool_id(1);
+		d.setTitle("好东西啊 ！！");
+		d.setType_id(1);
+		d.setUser_id(1);
+
+		dao.saveDemands(d);
+	}
+
+	@Test
+	public void getDemandsById() {
+		Demands d = dao.getDemandsById(2);
+		System.out.println(d);
+	}
+
+	@Test
+	public void getDemandsCounts() {
+		int i = dao.getDemandsCounts();
+		System.out.println(i);
+	}
+
+	@Test
+	public void updateDemands() {
+		Demands d = new Demands();
+		d.setLoca("高博C2");
+		d.setDescr("走过路过，不要放过！");
+		d.setPrice(100.2f);
+		d.setSchool_id(1);
+		d.setTitle("好东西啊 ！！");
+		d.setType_id(1);
+		d.setUser_id(1);
+		d.setId(2);
+		dao.updateDemands(d);
+	}
+
+	@Test
+	public void deleteDemands() {
+		String[] ids = { "2" };
+		dao.deleteDemands(ids);
+	}
+
+	// 收藏
+	@Test
+	public void deleteFavourite() {
+		String[] ids = { "2" };
+		dao.deleteFavourite(ids);
+	}
+
+	@Test
+	public void getFavouriteById() {
+		Favourite f = dao.getFavouriteById(2);
+		System.out.println(f);
+	}
+
+	@Test
+	public void saveFavourite() {
+		Favourite f = new Favourite();
+		f.setUser_id(1);
+		f.setGoods_id(3);
+
+		dao.saveFavourite(f);
+	}
+
 	// 学校
 	@Test
 	public void saveSchool() {
@@ -143,4 +218,49 @@ public class SecondHand_Test {
 		School s = dao.getSchoolById(id);
 		System.out.println(s);
 	}
+
+	// 发布需求
+	@SuppressWarnings("deprecation")
+	@Test
+	public void saveReleDemands() {
+		ReleDemands reled = new ReleDemands();
+		reled.setDemands_id(1);
+		reled.setReletime(new Date(2015, 11, 16));
+		reled.setUser_id(1);
+		dao.saveReleDemands(reled);
+	}
+
+	@Test
+	public void deleteReleDemands() {
+		String[] ids = { "1" };
+		dao.deleteReleDemands(ids);
+	}
+
+	@Test
+	public void getReledemandsById() {
+		ReleDemands rd = dao.getReleDemandsById(4);
+		System.out.println(rd);
+	}
+	
+	//发布商品
+	@Test
+		public void saveReleGoods() {
+		ReleGoods releg = new ReleGoods();
+		releg.setGoods_id(3);
+		releg.setUser_id(1);
+		releg.setReletime(Date.valueOf("1015-11-17"));
+		
+			dao.saveReleGoods(releg);
+		}
+	@Test
+		public void deleteReleGoods() {
+		String[] ids ={"2","4"};
+			dao.deleteReleGoods(ids);
+		}
+	@Test
+		public void getReleGoodsById() {
+		 ReleGoods releg = dao.getReleGoodsById(4);
+		 System.out.println(releg);
+		}
+		
 }
