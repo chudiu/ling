@@ -10,5 +10,7 @@ public class UserService {
 private UserDao dao=new UserDao();
 public void save(User u){
 	dao.saveUser(u);
+	
+	
 }
 }
