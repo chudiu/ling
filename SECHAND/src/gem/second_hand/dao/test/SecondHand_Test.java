@@ -1,6 +1,7 @@
 package gem.second_hand.dao.test;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 import org.junit.Test;
 
@@ -220,12 +221,11 @@ public class SecondHand_Test {
 	}
 
 	// 发布需求
-	@SuppressWarnings("deprecation")
 	@Test
 	public void saveReleDemands() {
 		ReleDemands reled = new ReleDemands();
 		reled.setDemands_id(1);
-		reled.setReletime(new Date(2015, 11, 16));
+		reled.setReletime( Timestamp.valueOf("1000-11-17 18:8:8"));
 		reled.setUser_id(1);
 		dao.saveReleDemands(reled);
 	}
@@ -248,13 +248,13 @@ public class SecondHand_Test {
 		ReleGoods releg = new ReleGoods();
 		releg.setGoods_id(3);
 		releg.setUser_id(1);
-		releg.setReletime(Date.valueOf("1015-11-17"));
+		releg.setReletime(Timestamp.valueOf("2014-11-17 19:25:22"));
 		
 			dao.saveReleGoods(releg);
 		}
 	@Test
 		public void deleteReleGoods() {
-		String[] ids ={"2","4"};
+		String[] ids ={"8","9"};
 			dao.deleteReleGoods(ids);
 		}
 	@Test

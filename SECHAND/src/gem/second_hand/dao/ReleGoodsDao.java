@@ -20,7 +20,7 @@ public class ReleGoodsDao {
 			prep = conn.prepareStatement(sql);
 			prep.setInt(1, releg.getUser_id());
 			prep.setInt(2, releg.getGoods_id());
-			prep.setDate(3, releg.getReletime());
+			prep.setTimestamp(3, releg.getReletime());
 			
 			prep.executeUpdate();
 		} catch (ClassNotFoundException | SQLException e) {
@@ -76,7 +76,7 @@ public class ReleGoodsDao {
 				releg.setId(rs.getInt("id"));
 				releg.setGoods_id(rs.getInt("goods_id"));
 				releg.setUser_id(rs.getInt("user_id"));
-				releg.setReletime(rs.getDate("reletime"));
+				releg.setReletime(rs.getTimestamp("reletime"));
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
