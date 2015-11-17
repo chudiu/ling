@@ -15,8 +15,8 @@ public class ReleDemandsService {
 		dao.deleteReleDemands(ids);
 	}
 	
-	public ReleDemands getReledemandsById(int id) {
-		return dao.getReledemandsById(id);
+	public ReleDemands getReleDemandsById(int id) {
+		return dao.getReleDemandsById(id);
 	}
 	
 }
