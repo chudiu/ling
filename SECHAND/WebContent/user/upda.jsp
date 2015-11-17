@@ -7,31 +7,30 @@
 </head>
 <script src='../common/date/date.js'></script>
 <script>
-function check() {
-	var nickname=document.getElementsByName("UserNickname")[0].value;
-	if(nickname==""){
-		alert("亲！昵称不能为空哟！！");
-		return;
+	function check() {
+		var nickname = document.getElementsByName("UserNickname")[0].value;
+		if (nickname == "") {
+			alert("亲！昵称不能为空哟！！");
+			return;
 		}
-	//提交页面
-	document.getElementsByName("frmAction")[0].submit();
+		//提交页面
+		document.getElementsByName("frmAction")[0].submit();
 
-}
+	}
 
-function back() {
-	//使用location.href跳转到list.jsp页面
-	//location.href("/linguser/ListUserServlet");
-}
-
+	function back() {
+		//使用location.href跳转到list.jsp页面
+		//location.href("/linguser/ListUserServlet");
+	}
 </Script>
 <body topmargin="10" leftmargin="10">
-	<form name="frmAction" method="post" action="/linguser/AddUserService">
+	<form name="frmAction" method="post" action="/SECHAND/AddUserService">
 		<table width="95%" border="0" cellpadding="3" cellspacing="1"
 			class="toolBar" align="center">
 			<tr align=left class="colom">
 				<td colspan="2">修改个人信息</td>
 			</tr>
-			
+
 			<tr class=even>
 				<td width='100' align='right' nowrap>昵称:&nbsp;</td>
 				<td bgcolor='#ffffff'><input type="text" name="UserNickname"><font
@@ -66,7 +65,7 @@ function back() {
 					type="button" value="返回" onclick="javascript:back()"></td>
 			</tr>
 		</table>
-			<input type="hidden" name ="urlid" value="update">  
+		<input type="hidden" name="urlid" value="update">
 	</form>
 </body>
 </html>

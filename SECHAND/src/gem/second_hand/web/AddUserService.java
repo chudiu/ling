@@ -4,17 +4,23 @@ package gem.second_hand.web;
 
 import gem.second_hand.entity.User;
 import gem.second_hand.service.UserService;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.tracing.dtrace.Attributes;
+import com.sun.tracing.dtrace.ModuleAttributes;
+
 /**
  * Servlet implementation class AddUserService
  */
+@WebServlet(asyncSupported = true, urlPatterns = { "/AddUserService" })
 public class AddUserService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
