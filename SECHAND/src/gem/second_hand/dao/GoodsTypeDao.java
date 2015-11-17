@@ -20,7 +20,7 @@ public class GoodsTypeDao {
 			// 1
 			conn = DBConnection.getDBConnection();
 			// 2.
-			String sql = "select *from goodsType where id=?";
+			String sql = "select *from goods_type where id=?";
 			// 3
 			prep = conn.prepareStatement(sql);
 			// 4

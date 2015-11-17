@@ -1,26 +1,27 @@
 package gem.second_hand.dao;
 
+import gem.second_hand.entity.ReleGoods;
+import gem.second_hand.util.DBConnection;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import gem.second_hand.entity.ReleDemands;
-import gem.second_hand.util.DBConnection;
-
-public class ReleDemandsDao {
-
-	public void saveReleDemands(ReleDemands reled) {
+public class ReleGoodsDao {
+	
+	public void saveReleGoods(ReleGoods releg) {
 		Connection conn = null;
 		PreparedStatement prep = null;
 		try {
 			conn = DBConnection.getDBConnection();
-			String sql = "insert into rele_demands(user_id,demands_id,reletime)"
+			String sql = "insert into rele_goods(user_id,goods_id,reletime)"
 					+ "values(?,?,?)";
 			prep = conn.prepareStatement(sql);
-			prep.setInt(1, reled.getUser_id());
-			prep.setInt(2, reled.getDemands_id());
-			prep.setTimestamp(3, reled.getReletime());
+			prep.setInt(1, releg.getUser_id());
+			prep.setInt(2, releg.getGoods_id());
+			prep.setTimestamp(3, releg.getReletime());
+			
 			prep.executeUpdate();
 		} catch (ClassNotFoundException | SQLException e) {
 			throw new RuntimeException(e);
@@ -35,12 +36,12 @@ public class ReleDemandsDao {
 			}
 		}
 	}
-	public void deleteReleDemands(String[] ids) {
+	public void deleteReleGoods(String[] ids) {
 		Connection conn = null;
 		PreparedStatement prep = null;
 		try {
 			conn = DBConnection.getDBConnection();
-			String sql = "delete  from rele_demands where id=?";
+			String sql = "delete  from rele_goods where id=?";
 			prep = conn.prepareStatement(sql);
 
 			for (String id : ids) {
@@ -58,24 +59,24 @@ public class ReleDemandsDao {
 			}
 		}
 	}
-	public ReleDemands getReleDemandsById(int id) {
+	public ReleGoods getReleGoodsById(int id) {
 		Connection conn = null;
 		PreparedStatement prep = null;
 		ResultSet rs = null;
-		ReleDemands reled = null;
+		ReleGoods releg = null;
 		try {
 			conn = DBConnection.getDBConnection();
-			String sql = "select * from rele_demands where id=?";
+			String sql = "select * from rele_goods where id=?";
 			prep = conn.prepareStatement(sql);
 			prep.setInt(1, id);
 			rs = prep.executeQuery();
 			
 			if (rs.next()) {
-				reled  = new ReleDemands();
-				reled.setId(rs.getInt("id"));
-				reled.setDemands_id(rs.getInt("demands_id"));
-				reled.setUser_id(rs.getInt("user_id"));
-				reled.setReletime(rs.getTimestamp("reletime"));
+				releg  = new ReleGoods();
+				releg.setId(rs.getInt("id"));
+				releg.setGoods_id(rs.getInt("goods_id"));
+				releg.setUser_id(rs.getInt("user_id"));
+				releg.setReletime(rs.getTimestamp("reletime"));
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -88,6 +89,6 @@ public class ReleDemandsDao {
 				throw new RuntimeException(e2);
 			}
 		}
-		return reled;
+		return releg;
 	}
 }

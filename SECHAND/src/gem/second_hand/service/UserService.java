@@ -10,6 +10,8 @@ public class UserService {
 private UserDao dao=new UserDao();
 public void save(User u){
 	dao.saveUser(u);
+	
+	
 }
 
 public void updateUaser(User user) {

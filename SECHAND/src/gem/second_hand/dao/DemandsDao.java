@@ -156,7 +156,7 @@ public class DemandsDao {
 			prep.setInt(5, d.getUser_id());// 好像也不需要改
 			prep.setString(6, d.getLoca());
 			prep.setInt(7, d.getSchool_id());// 发布的学校不会变吧
-
+			prep.setInt(8, d.getId());
 			prep.executeUpdate();
 
 		} catch (ClassNotFoundException | SQLException e) {

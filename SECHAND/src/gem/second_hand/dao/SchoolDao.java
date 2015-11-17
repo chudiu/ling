@@ -16,7 +16,7 @@ public class SchoolDao {
 		try {
 			conn = DBConnection.getDBConnection();
 			// 2.SQL
-			String sql = "insert into school(loca,name) values(?,?,?,?,?,?,?,?,?,?)";
+			String sql = "insert into school(loca,name) values(?,?)";
 			// 3.PreparedStatement
 			prep = conn.prepareStatement(sql);
 			prep.setString(1, school.getLoca());

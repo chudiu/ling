@@ -1,13 +1,13 @@
 package gem.second_hand.entity;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class ReleGoods {
 	//商品发布表 ReleGoods
 	private int id;
 	private int user_id;
 	private int goods_id;
-	private Date reletime;//哪个包
+	private Timestamp reletime;//哪个包
 
 	public ReleGoods() {
 
@@ -37,11 +37,11 @@ public class ReleGoods {
 		this.goods_id = goods_id;
 	}
 
-	public Date getReletime() {
+	public Timestamp getReletime() {
 		return reletime;
 	}
 
-	public void setReletime(Date reletime) {
+	public void setReletime(Timestamp reletime) {
 		this.reletime = reletime;
 	}
 
