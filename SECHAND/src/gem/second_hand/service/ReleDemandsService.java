@@ -16,7 +16,7 @@ public class ReleDemandsService {
 	}
 	
 	public ReleDemands getReledemandsById(int id) {
-		return dao.getReledemandsById(id);
+		return dao.getReleDemandsById(id);
 	}
 	
 }

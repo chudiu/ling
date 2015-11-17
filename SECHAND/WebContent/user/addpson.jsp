@@ -35,7 +35,7 @@ function back() {
 
 </Script>
 <body topmargin="10" leftmargin="10">
-	<form name="frmAction" method="post" action="/linguser/AddUserService">
+	<form name="frmAction" method="post" action="/SECHAND/AddUserService">
 		<table width="95%" border="0" cellpadding="3" cellspacing="1"
 			class="toolBar" align="center">
 			<tr align=left class="colom">
